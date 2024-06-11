@@ -69,11 +69,11 @@ The Books Management System is a web application designed to manage information 
 
 The API provides endpoints for managing books and authors. Here are the available endpoints:
 
-- **GET /api/books**: Get all books
-- **GET /api/books/{id}**: Get a book by ID
-- **POST /api/books**: Create a new book
-- **PUT /api/books/{id}**: Update an existing book
-- **DELETE /api/books/{id}**: Delete a book by ID
+- **GET /api/book**: Get all books
+- **GET /api/book/{bookId}**: Get a book by ID
+- **POST /api/book**: Create a new book
+- **PUT /api/book/{bookId}**: Update an existing book
+- **DELETE /api/book/{bookId}**: Delete a book by ID
 
 For more detailed API documentation, refer to the API reference or Swagger documentation.
 
