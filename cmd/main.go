@@ -13,6 +13,7 @@ import (
 
     "github.com/mohammad-ayman/books_managment/internal/routes"
     "github.com/mohammad-ayman/books_managment/internal/config"
+    "github.com/mohammad-ayman/books_managment/middleware"
     )    
 
 
@@ -31,6 +32,9 @@ func main() {
     // Initialize the database
     config.InitializeDatabase()
     router := mux.NewRouter()
+
+    // Attach logging middleware to all requests
+    router.Use(middleware.LoggingMiddleware)
 
 	// Create a subrouter for API requests
 	apiRouter := router.PathPrefix("/api").Subrouter()
