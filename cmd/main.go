@@ -11,7 +11,9 @@ import (
     "github.com/joho/godotenv"
     _ "github.com/jinzhu/gorm/dialects/postgres"
 
-    "github.com/mohammad-ayman/books_managment/internal/routes"
+
+    internalRoutes "github.com/mohammad-ayman/books_managment/internal/routes"
+    redirectRoutes "github.com/mohammad-ayman/books_managment/canonicalRedirect/routes"
     "github.com/mohammad-ayman/books_managment/internal/config"
     "github.com/mohammad-ayman/books_managment/middleware"
     )    
@@ -38,9 +40,13 @@ func main() {
 
 	// Create a subrouter for API requests
 	apiRouter := router.PathPrefix("/api").Subrouter()
+    CanonicalRedirectRouter := router.PathPrefix("/process-url").Subrouter()
 	
 	// Register routes for the API subrouter
-	routes.BooksManagmentRoutes(apiRouter)
+	internalRoutes.BooksManagmentRoutes(apiRouter)
+
+    // Register routes for the cleanRedirect subrouter
+    redirectRoutes.CanonicalRedirectRoutes(CanonicalRedirectRouter)
     
     fmt.Println("server running on port " + port)
     log.Fatal(http.ListenAndServe(":"+port, router))
