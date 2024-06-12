@@ -36,7 +36,7 @@ func GetBook(id int) (*Book, error) {
     var book Book
     if err := db.Where("id = ?", id).First(&book).Error; err != nil {
         if err == gorm.ErrRecordNotFound {
-            return nil, nil 
+            return nil, err 
         }
         return nil, err
     }
@@ -61,9 +61,7 @@ func UpdateBook(id int, updatedBook *Book) (*Book, error) {
 	if err := db.Model(&oldBook).Updates(updatedBook).Error; err != nil {
 		return nil, err
 	}
-	if err := db.Where("id = ?", id).First(&oldBook).Error; err != nil {
-		return nil, err
-	}
+	
 	return &oldBook, nil
 }
 
