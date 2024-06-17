@@ -2,6 +2,21 @@
 
 The Books Management and Canonical Redirect System is a web application designed to manage information about books and authors, as well as handle canonicalization and redirection of URLs.
 
+## Table of Contents
+
+1. [Internal Features (Books Management)](#internal-features-books-management)
+   - [Server-side (Go Backend)](#server-side-go-backend)
+   - [Client-side (Next.js Frontend)](#client-side-nextjs-frontend)
+   - [Screenshots](#screenshots)
+   - [Getting Started](#getting-started)
+   - [CRUD Functionalities](#crud-functionalities)
+2. [Canonical Redirect Functionality](#canonical-redirect-functionality)
+   - [Features](#features)
+   - [Technologies Used](#technologies-used)
+   - [Getting Started](#getting-started-1)
+   - [API Documentation](#api-documentation)
+   - [Running Tests](#running-tests)
+
 ## Internal Features (Books Management)
 
 ### Server-side (Go Backend)
@@ -80,7 +95,8 @@ The Books Management and Canonical Redirect System is a web application designed
 - **PUT /api/book/{bookId}**: Update an existing book
 - **DELETE /api/book/{bookId}**: Delete a book by ID
 
-For detailed API documentation, refer to (https://www.postman.com/galactic-meteor-482293/workspace/golang/request/33474187-4b0cce24-5b52-4d3d-9b18-8dfca46af0c6)
+For detailed API documentation, refer to [Postman](https://www.postman.com/galactic-meteor-482293/workspace/golang/request/33474187-4b0cce24-5b52-4d3d-9b18-8dfca46af0c6){:target="_blank"} 
+
 
 ### Client-side (Next.js Frontend)
 
@@ -228,7 +244,7 @@ For detailed API documentation, refer to (https://www.postman.com/galactic-meteo
 
 Response from both endpoints will contain a JSON object with `processed_url` field indicating the processed or redirected URL.
 
-For detailed API documentation, refer to (https://www.postman.com/galactic-meteor-482293/workspace/golang/request/33474187-4b0cce24-5b52-4d3d-9b18-8dfca46af0c6)
+For detailed API documentation, refer to [Postman](https://www.postman.com/galactic-meteor-482293/workspace/golang/request/33474187-4b0cce24-5b52-4d3d-9b18-8dfca46af0c6){:target="_blank"} 
 
 ## Running Tests
 
