@@ -34,39 +34,39 @@ The Books Management and Canonical Redirect System is a web application designed
 
 1. Clone the repository:
 
-    ```bash
-    git clone https://github.com/mohammad-ayman/books_management.git
-    ```
+   ```bash
+   git clone https://github.com/mohammad-ayman/books_management.git
+   ```
 
 2. Navigate to the project directory:
 
-    ```bash
-    cd books_management
-    ```
+   ```bash
+   cd books_management
+   ```
 
 3. Install dependencies:
 
-    ```bash
-    go mod tidy
-    ```
+   ```bash
+   go mod tidy
+   ```
 
 4. Set up the environment variables by creating a `.env` file and adding the necessary configurations:
 
-    ```plaintext
-    # Common environment variables for both parts
-    DB_HOST=localhost
-    DB_PORT=5432
-    DB_USER=your_database_user
-    DB_PASSWORD=your_database_password
-    DB_NAME=books_management
-    DB_SSLMODE=disable
-    ```
+   ```plaintext
+   # Common environment variables for both parts
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_USER=your_database_user
+   DB_PASSWORD=your_database_password
+   DB_NAME=books_management
+   DB_SSLMODE=disable
+   ```
 
 5. Run the application:
 
-    ```bash
-    go run cmd/main.go
-    ```
+   ```bash
+   go run cmd/main.go
+   ```
 
 6. The server will be accessible at `http://localhost:8080`.
 
@@ -96,6 +96,20 @@ For detailed API documentation, refer to the API reference or Swagger documentat
 - **React Hooks**: For managing state and side effects within functional components
 - **CSS Modules**: Local scoped CSS for styling components
 
+#### Screenshots
+
+##### Landing Page
+
+![Landing Page](/client/public/Landing%20Page.png)
+
+##### All Books
+
+![All Books](/client/public/All%20Books.png)
+
+##### Get Book
+
+![Get Book](/client/public/Get%20Book.png)
+
 #### Getting Started
 
 ##### Prerequisites
@@ -107,15 +121,15 @@ For detailed API documentation, refer to the API reference or Swagger documentat
 
 1. Install dependencies:
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 2. Start the Next.js development server:
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
 3. Access the frontend application in your web browser at `http://localhost:3000`.
 
@@ -152,39 +166,39 @@ For detailed API documentation, refer to the API reference or Swagger documentat
 
 1. Clone the repository:
 
-    ```bash
-    git clone https://github.com/mohammad-ayman/books_management.git
-    ```
+   ```bash
+   git clone https://github.com/mohammad-ayman/books_management.git
+   ```
 
 2. Navigate to the project directory:
 
-    ```bash
-    cd books_management
-    ```
+   ```bash
+   cd books_management
+   ```
 
 3. Install dependencies:
 
-    ```bash
-    go mod tidy
-    ```
+   ```bash
+   go mod tidy
+   ```
 
 4. Set up the environment variables by creating a `.env` file and adding the necessary configurations:
 
-    ```plaintext
-    # Common environment variables for both parts
-    DB_HOST=localhost
-    DB_PORT=5432
-    DB_USER=your_database_user
-    DB_PASSWORD=your_database_password
-    DB_NAME=books_management
-    DB_SSLMODE=disable
-    ```
+   ```plaintext
+   # Common environment variables for both parts
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_USER=your_database_user
+   DB_PASSWORD=your_database_password
+   DB_NAME=books_management
+   DB_SSLMODE=disable
+   ```
 
 5. Run the application:
 
-    ```bash
-    go run cmd/main.go
-    ```
+   ```bash
+   go run cmd/main.go
+   ```
 
 6. Access the application in your web browser at `http://localhost:8080`.
 
@@ -198,17 +212,17 @@ For detailed API documentation, refer to the API reference or Swagger documentat
 
 ```json
 {
-    "url": "https://example.com/URL-to-process",
-    "operation": "canonical"
+  "url": "https://example.com/URL-to-process",
+  "operation": "canonical"
 }
-
 ```
+
 #### Redirection Request Body Example
 
 ```json
 {
-    "url": "https://example.com/URL-to-redirect",
-    "operation": "redirect"
+  "url": "https://example.com/URL-to-redirect",
+  "operation": "redirect"
 }
 ```
 
