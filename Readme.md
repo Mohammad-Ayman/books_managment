@@ -95,8 +95,7 @@ The Books Management and Canonical Redirect System is a web application designed
 - **PUT /api/book/{bookId}**: Update an existing book
 - **DELETE /api/book/{bookId}**: Delete a book by ID
 
-For detailed API documentation, refer to [Postman](https://www.postman.com/galactic-meteor-482293/workspace/golang/request/33474187-4b0cce24-5b52-4d3d-9b18-8dfca46af0c6){:target="_blank"} 
-
+For detailed API documentation, refer to <a href="https://www.postman.com/galactic-meteor-482293/workspace/golang/request/33474187-4b0cce24-5b52-4d3d-9b18-8dfca46af0c6" target="_blank">Postman</a>.
 
 ### Client-side (Next.js Frontend)
 
@@ -244,7 +243,7 @@ For detailed API documentation, refer to [Postman](https://www.postman.com/galac
 
 Response from both endpoints will contain a JSON object with `processed_url` field indicating the processed or redirected URL.
 
-For detailed API documentation, refer to [Postman](https://www.postman.com/galactic-meteor-482293/workspace/golang/request/33474187-4b0cce24-5b52-4d3d-9b18-8dfca46af0c6){:target="_blank"} 
+For detailed API documentation, refer to <a href="https://www.postman.com/galactic-meteor-482293/workspace/golang/request/33474187-4b0cce24-5b52-4d3d-9b18-8dfca46af0c6" target="_blank">Postman</a>.
 
 ## Running Tests
 
