@@ -1,0 +1,27 @@
+.pay-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  /* margin-top: 2rem; */
+}
+.pay-container button {
+  align-self: flex-end;
+  /* background-color: #e2f0d9; */
+  /* color: #000; */
+  background-color: #edeef0;
+  color: #333;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border: none;
+  text-decoration: none;
+  /* border-radius: 2rem; */
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.pay-container button:hover {
+  background-color: #333;
+  color: #edeef0;
+}
