@@ -1,0 +1,35 @@
+.global-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+.global-container label {
+  font-size: 1.2rem;
+  flex: 1;
+  font-size: 1.6rem;
+}
+/* .input-container {
+  display: flex;
+  flex: 2;
+  margin-bottom: 0;
+} */
+.input-element {
+  flex: 90%;
+  font-size: 1.6rem;
+  border-radius: 4px;
+  /* max-width: 95%; */
+  padding: 0.25rem;
+}
+.required {
+  font-weight: bold;
+}
+.global-container h1 {
+  color: red;
+  flex: 0.001;
+}
+.readOnly {
+  border: none;
+  outline: none;
+  border-color: none;
+}
