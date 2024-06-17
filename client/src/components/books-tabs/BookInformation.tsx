@@ -3,11 +3,11 @@ import TextInput from "../../buildingComponents/TextInput";
 import styles from "../../components/books-tabs/styles/bookInformation.module.css";
 
 interface Props {
-  dossierData: Partial<IBook>;
+  bookData: Partial<IBook>;
 }
 
-const BookInformation: React.FC<Props> = ({ dossierData }) => {
-  const { title, author, isbn } = dossierData || {};
+const BookInformation: React.FC<Props> = ({ bookData }) => {
+  const { title, author, isbn } = bookData || {};
 
   return (
     <section className={styles["parent-container"]}>
