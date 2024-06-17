@@ -1,22 +1,38 @@
-# Books Management System
+# Books Management and Canonical Redirect System
 
-The Books Management System is a web application designed to manage information about books, authors, and related data. It provides functionalities to create, read, update, and delete (CRUD) records for books and authors.
+The Books Management and Canonical Redirect System is a web application designed to manage information about books and authors, as well as handle canonicalization and redirection of URLs.
 
-## Features
+## Internal Features (Books Management)
+
+### Features
 
 - **Book Management**: Add, view, edit, and delete books.
 - **Author Management**: Add, view, edit, and delete authors.
 - **Search**: Search for books and authors based on various criteria.
-- **RESTful API**: Expose RESTful API endpoints to interact with the system programmatically.
-- **Logging**: Log incoming requests to the system for monitoring and analysis.
+- **RESTful API**: Expose endpoints to interact with the system programmatically.
+- **Logging**: Log incoming requests for monitoring and analysis.
 
-## Technologies Used
+### Technologies Used
 
 - **Go**: Backend development language
 - **Gorilla Mux**: HTTP router for handling routing in the Go application
 - **GORM**: Object-Relational Mapping (ORM) library for Go
 - **PostgreSQL**: Relational database management system
 - **dotenv**: Go library for loading environment variables from a .env file
+
+## Canonical Redirect Functionality
+
+### Features
+
+- **Canonicalization**: Convert URLs to a standard format.
+- **Redirection**: Redirect URLs to a canonical form or preferred URL.
+- **Flexible Configuration**: Support for different types of URL operations.
+
+### Technologies Used
+
+- **Go**: Backend development language
+- **Gorilla Mux**: HTTP router for handling routing in the Go application
+- **JSON Handling**: JSON encoding and decoding for request and response payloads.
 
 ## Getting Started
 
@@ -49,6 +65,7 @@ The Books Management System is a web application designed to manage information 
 4. Set up the environment variables by creating a `.env` file and adding the necessary configurations:
 
     ```plaintext
+    # Common environment variables for both parts
     DB_HOST=localhost
     DB_PORT=5432
     DB_USER=your_database_user
@@ -67,7 +84,9 @@ The Books Management System is a web application designed to manage information 
 
 ## API Documentation
 
-The API provides endpoints for managing books and authors. Here are the available endpoints:
+### Internal (Books Management) API
+
+#### Endpoints
 
 - **GET /api/book**: Get all books
 - **GET /api/book/{bookId}**: Get a book by ID
@@ -75,7 +94,37 @@ The API provides endpoints for managing books and authors. Here are the availabl
 - **PUT /api/book/{bookId}**: Update an existing book
 - **DELETE /api/book/{bookId}**: Delete a book by ID
 
-For more detailed API documentation, refer to the API reference or Swagger documentation.
+For detailed API documentation, refer to the API reference or Swagger documentation.
 
+### Canonical Redirect API
 
+#### Endpoints
 
+- **POST /process-url**: Handle canonicalization and redirection operations.
+
+#### Canonicalization Request Body Example
+
+```json
+{
+    "url": "https://example.com/URL-to-process",
+    "operation": "canonical"
+}
+```
+#### Redirection Request Body Example
+
+```json
+{
+    "url": "https://example.com/URL-to-redirect",
+    "operation": "redirect"
+}
+```
+
+Response from both endpoints will contain a JSON object with `processed_url` field indicating the processed or redirected URL.
+
+## Running Tests
+
+To run tests for the canonical redirect functionality, use the following command:
+
+```bash
+go test -v ./canonicalRedirect/controllers
+```
