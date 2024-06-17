@@ -94,7 +94,6 @@ For detailed API documentation, refer to the API reference or Swagger documentat
 
 - **Next.js**: React framework for frontend development
 - **React Hooks**: For managing state and side effects within functional components
-- **Axios**: HTTP client for making requests to the backend API
 - **CSS Modules**: Local scoped CSS for styling components
 
 #### Getting Started
@@ -102,7 +101,7 @@ For detailed API documentation, refer to the API reference or Swagger documentat
 ##### Prerequisites
 
 - Node.js and npm installed on your system
-- Access to the Books Management System backend server (running locally or deployed)
+- Access to the Books Management System backend server
 
 ##### Setup
 
