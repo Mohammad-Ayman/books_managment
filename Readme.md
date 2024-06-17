@@ -4,7 +4,9 @@ The Books Management and Canonical Redirect System is a web application designed
 
 ## Internal Features (Books Management)
 
-### Features
+### Server-side (Go Backend)
+
+#### Features
 
 - **Book Management**: Add, view, edit, and delete books.
 - **Author Management**: Add, view, edit, and delete authors.
@@ -12,13 +14,118 @@ The Books Management and Canonical Redirect System is a web application designed
 - **RESTful API**: Expose endpoints to interact with the system programmatically.
 - **Logging**: Log incoming requests for monitoring and analysis.
 
-### Technologies Used
+#### Technologies Used
 
 - **Go**: Backend development language
 - **Gorilla Mux**: HTTP router for handling routing in the Go application
 - **GORM**: Object-Relational Mapping (ORM) library for Go
 - **PostgreSQL**: Relational database management system
 - **dotenv**: Go library for loading environment variables from a .env file
+
+#### Getting Started
+
+##### Prerequisites
+
+- Go programming language installed on your system
+- PostgreSQL database server installed and running
+- Text editor or IDE for code editing
+
+##### Installation
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/mohammad-ayman/books_management.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd books_management
+    ```
+
+3. Install dependencies:
+
+    ```bash
+    go mod tidy
+    ```
+
+4. Set up the environment variables by creating a `.env` file and adding the necessary configurations:
+
+    ```plaintext
+    # Common environment variables for both parts
+    DB_HOST=localhost
+    DB_PORT=5432
+    DB_USER=your_database_user
+    DB_PASSWORD=your_database_password
+    DB_NAME=books_management
+    DB_SSLMODE=disable
+    ```
+
+5. Run the application:
+
+    ```bash
+    go run cmd/main.go
+    ```
+
+6. The server will be accessible at `http://localhost:8080`.
+
+##### API Documentation
+
+###### Endpoints
+
+- **GET /api/book**: Get all books
+- **GET /api/book/{bookId}**: Get a book by ID
+- **POST /api/book**: Create a new book
+- **PUT /api/book/{bookId}**: Update an existing book
+- **DELETE /api/book/{bookId}**: Delete a book by ID
+
+For detailed API documentation, refer to the API reference or Swagger documentation.
+
+### Client-side (Next.js Frontend)
+
+#### Features
+
+- **User Interface**: Interactive interface to manage books and authors.
+- **CRUD Operations**: Create, Read, Update, and Delete books and authors seamlessly.
+- **Integration with Backend**: Communicates with the backend API to fetch and modify data.
+
+#### Technologies Used
+
+- **Next.js**: React framework for frontend development
+- **React Hooks**: For managing state and side effects within functional components
+- **Axios**: HTTP client for making requests to the backend API
+- **CSS Modules**: Local scoped CSS for styling components
+
+#### Getting Started
+
+##### Prerequisites
+
+- Node.js and npm installed on your system
+- Access to the Books Management System backend server (running locally or deployed)
+
+##### Setup
+
+1. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+2. Start the Next.js development server:
+
+    ```bash
+    npm run dev
+    ```
+
+3. Access the frontend application in your web browser at `http://localhost:3000`.
+
+##### CRUD Functionalities
+
+- **Create**: Add new books and authors using a form.
+- **Read**: View a list of all books and authors, with details available for each individual book.
+- **Update**: Edit existing books and authors through an edit form.
+- **Delete**: Remove books and authors from the database.
 
 ## Canonical Redirect Functionality
 
@@ -34,15 +141,15 @@ The Books Management and Canonical Redirect System is a web application designed
 - **Gorilla Mux**: HTTP router for handling routing in the Go application
 - **JSON Handling**: JSON encoding and decoding for request and response payloads.
 
-## Getting Started
+### Getting Started
 
-### Prerequisites
+#### Prerequisites
 
 - Go programming language installed on your system
 - PostgreSQL database server installed and running
 - Text editor or IDE for code editing
 
-### Installation
+#### Installation
 
 1. Clone the repository:
 
@@ -82,21 +189,7 @@ The Books Management and Canonical Redirect System is a web application designed
 
 6. Access the application in your web browser at `http://localhost:8080`.
 
-## API Documentation
-
-### Internal (Books Management) API
-
-#### Endpoints
-
-- **GET /api/book**: Get all books
-- **GET /api/book/{bookId}**: Get a book by ID
-- **POST /api/book**: Create a new book
-- **PUT /api/book/{bookId}**: Update an existing book
-- **DELETE /api/book/{bookId}**: Delete a book by ID
-
-For detailed API documentation, refer to the API reference or Swagger documentation.
-
-### Canonical Redirect API
+### API Documentation
 
 #### Endpoints
 
@@ -109,6 +202,7 @@ For detailed API documentation, refer to the API reference or Swagger documentat
     "url": "https://example.com/URL-to-process",
     "operation": "canonical"
 }
+
 ```
 #### Redirection Request Body Example
 
