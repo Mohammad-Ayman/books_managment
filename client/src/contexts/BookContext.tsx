@@ -1,14 +1,6 @@
 "use client";
-import endpoints from "@/config/server";
-import { unstable_noStore } from "next/cache";
-import {
-  createContext,
-  FC,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { deleteBook } from "@/utils/actions/actions";
+import { createContext, FC, ReactNode, useContext, useState } from "react";
 
 interface BookContextProps {
   books: IBook[];
@@ -22,32 +14,12 @@ interface BookContextProps {
 
 const BookContext = createContext<BookContextProps | undefined>(undefined);
 
-export const BookContextProvider: FC<{ children: ReactNode }> = ({
-  children,
-}) => {
-  const [books, setBooks] = useState<IBook[]>([]);
+export const BookContextProvider: FC<{
+  children: ReactNode;
+  initialBooks: IBook[];
+}> = ({ children, initialBooks }) => {
+  const [books, setBooks] = useState<IBook[]>(initialBooks);
   const [bookIdToBeDeleted, setBookIdToBeDeleted] = useState<number>();
-
-  const getAllBooks = async () => {
-    try {
-      unstable_noStore();
-      const response = await fetch(endpoints.getBooks);
-      const data = await response.json();
-
-      const transformedData = data.data.map((book: IBookResponse) => {
-        const { DeletedAt, UpdatedAt, CreatedAt, ...rest } = book;
-        const formattedCreatedAt = CreatedAt.split("T")[0];
-        return { ...rest, "Created At": formattedCreatedAt };
-      });
-      setBooks(transformedData);
-    } catch (error: any) {
-      console.error("Error fetching books:", error);
-    }
-  };
-
-  useEffect(() => {
-    getAllBooks();
-  }, []);
 
   const getBook = (id: number) => {
     return books.find((Book: any) => Book["Book"] === id);
@@ -103,14 +75,9 @@ export const BookContextProvider: FC<{ children: ReactNode }> = ({
 
   const deleteBookCtx = async () => {
     try {
-      const apiUrl = endpoints.deleteBook + `${bookIdToBeDeleted}`;
-      unstable_noStore();
-      const response = await fetch(apiUrl, {
-        method: "DELETE",
-      });
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(`Failed to delete book. Error: ${errorData.message}`);
+      const deletedBook = await deleteBook(bookIdToBeDeleted!);
+      if (!deletedBook) {
+        throw new Error("Failed to delete book");
       }
       resetDeleteRequest();
       const filteredBooks: IBook[] = books?.filter(
