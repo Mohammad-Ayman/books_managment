@@ -7,7 +7,7 @@ import { useState } from "react";
 const pages: string[] = ["Books"];
 
 const Sidebar: React.FC = () => {
-  const [sidebarVisible, setSidebarVisible] = useState(false);
+  const [sidebarVisible, setSidebarVisible] = useState(true);
   const pathname = usePathname();
   if (pathname === "/" || pathname === "") {
     return null;
