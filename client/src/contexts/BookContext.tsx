@@ -1,6 +1,13 @@
 "use client";
-import { deleteBook } from "@/utils/actions/actions";
-import { createContext, FC, ReactNode, useContext, useState } from "react";
+import { deleteBook, getAllBooks } from "@/utils/actions/actions";
+import {
+  createContext,
+  FC,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 
 interface BookContextProps {
   books: IBook[];
@@ -16,10 +23,19 @@ const BookContext = createContext<BookContextProps | undefined>(undefined);
 
 export const BookContextProvider: FC<{
   children: ReactNode;
-  initialBooks: IBook[];
-}> = ({ children, initialBooks }) => {
-  const [books, setBooks] = useState<IBook[]>(initialBooks);
+}> = ({ children }) => {
+  const [books, setBooks] = useState<IBook[]>([]);
   const [bookIdToBeDeleted, setBookIdToBeDeleted] = useState<number>();
+
+  const fetchBooks = async () => {
+    const data = await getAllBooks();
+    if (!data) return;
+    setBooks(data);
+  };
+
+  useEffect(() => {
+    fetchBooks();
+  }, []);
 
   const getBook = (id: number) => {
     return books.find((Book: any) => Book["Book"] === id);
@@ -75,10 +91,8 @@ export const BookContextProvider: FC<{
 
   const deleteBookCtx = async () => {
     try {
-      const deletedBook = await deleteBook(bookIdToBeDeleted!);
-      if (!deletedBook) {
-        throw new Error("Failed to delete book");
-      }
+      const data = await deleteBook(bookIdToBeDeleted!);
+      if (!data) return;
       resetDeleteRequest();
       const filteredBooks: IBook[] = books?.filter(
         (book) => book["ID"] !== bookIdToBeDeleted
